@@ -1,16 +1,19 @@
-package com.neueda.branchmanagement.model;
+package main.java.com.neueda.branchmanagement.model;
 
 import javax.persistence.Entity;
-import javax<TEntity>
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "branches")
 public class Branch {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String city;
     private String zip;
     private String state;
@@ -18,7 +21,21 @@ public class Branch {
     private String branchManager;
     private int numberOfEmployees;
 
-    // Getters and Setters
+    // Default constructor for JPA
+    public Branch() {
+    }
+
+    // Constructor
+    public Branch(String city, String zip, String state, String operatingHours, String branchManager, int numberOfEmployees) {
+        this.city = city;
+        this.zip = zip;
+        this.state = state;
+        this.operatingHours = operatingHours;
+        this.branchManager = branchManager;
+        this.numberOfEmployees = numberOfEmployees;
+    }
+
+    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -40,7 +57,7 @@ public class Branch {
     }
 
     public void setZip(String zip) {
-        this.zip = zip;
+      this.zip = zip;
     }
 
     public String getState() {
@@ -55,7 +72,7 @@ public class Branch {
         return operatingHours;
     }
 
-    public void setOperatingHours(String operatingHours) {
+    public void setOperatingTopTime(String operatingHours) {
         this.operatingHours = operatingHours;
     }
 
