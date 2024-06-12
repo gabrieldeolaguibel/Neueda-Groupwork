@@ -1,12 +1,11 @@
-package main.java.com.neueda.branchmanagement.controller;
+package com.neueda.branchmanagement.controller;
 
-import com.neueda.branchmanagement.model.Branch; 
-import com.neueda.branchmanagement.service.BranchService;
+import com.neueda.branchmanagement.model.*;
+import com.neueda.branchmanagement.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -19,6 +18,10 @@ public class BranchController {
     // Get all branches
     @GetMapping
     public ResponseEntity<List<Branch>> getAllBranches() {
+        branchService.createBranch(new Branch("New York", "10001", "NY", "9AM-5PM", "John Doe", 10));
+        branchService.createBranch(new Branch("Los Angeles", "90001", "CA", "10AM-6PM", "Jane Smith", 15));
+        branchService.createBranch(new Branch("Chicago", "60601", "IL", "8AM-4PM", "Michael Brown", 8));
+
         List<Branch> branches = branchService.findAllBranches();
         return new ResponseEntity<>(branches, HttpStatus.OK);
     }
@@ -28,7 +31,7 @@ public class BranchController {
     public ResponseEntity<Branch> getBranchById(@PathVariable Long id) {
         Branch branch = branchService.findBranchById(id);
         return branch != null ? new ResponseEntity<>(branch, HttpStatus.OK) :
-                                new ResponseEntity<>(HttpStatus.NOT_FOUND);
+                new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     // Create a new branch
@@ -40,9 +43,11 @@ public class BranchController {
 
     // Update an existing branch
     @PutMapping("/{id}")
-    public ResponseEntity<Branch> updateBranch(@PathVariable Long id, @RequestBody Branch branchDetails) {
+    public ResponseEntity<Branch> updateBranch(@PathVariable int id, @RequestBody Branch branchDetails) {
         Branch updatedBranch = branchService.updateBranch(id, branchDetails);
         return updatedBranch != null ? new ResponseEntity<>(updatedBranch, HttpStatus.OK) :
-                                       new ResponseEntity<>(HttpStatus.NOT_FOUND);
+                new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+
 }
