@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.neueda.branchmanagement.BranchmanagementApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.400 s -- in com.neueda.branchmanagement.BranchmanagementApplicationTests

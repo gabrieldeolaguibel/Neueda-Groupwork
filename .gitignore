@@ -1,2 +1,18 @@
 **/.DS_Store
+# Logs
+log/
+logs/
+*.log
+
+# Maven Wrapper files
+mvnw
+mvnw.cmd
+
+# IntelliJ IDEA
 .idea/
+*.iml
+*.iws
+
+# Build output directories
+target/
+out/
