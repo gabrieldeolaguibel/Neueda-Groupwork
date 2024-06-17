@@ -56,6 +56,4 @@ public class BranchController {
         return updatedBranch != null ? new ResponseEntity<>(updatedBranch, HttpStatus.OK) :
                 new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
-
 }
