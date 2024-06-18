@@ -12,9 +12,9 @@ mvnw.cmd
 .idea/
 *.iml
 *.iws
+.vscode/
 
 # Build output directories
 target/
 out/
 
-.vscode
