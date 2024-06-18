@@ -34,7 +34,7 @@ public class BranchController {
     // Get a single branch by ID
     @GetMapping("/{id}")
     @Operation(summary = "Get branch by ID", description = "Retrieve a branch by its ID")
-    public ResponseEntity<Branch> getBranchById(@PathVariable Long id) {  // Change from long to Long
+    public ResponseEntity<Branch> getBranchById(@PathVariable Long id) {
         Branch branch = branchService.findBranchById(id);
         return branch != null ? new ResponseEntity<>(branch, HttpStatus.OK) :
                 new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -51,9 +51,10 @@ public class BranchController {
     // Update an existing branch
     @PutMapping("/{id}")
     @Operation(summary = "Update an existing branch", description = "Update an existing branch by its ID")
-    public ResponseEntity<Branch> updateBranch(@PathVariable Long id, @RequestBody Branch branchDetails) {  // Change from long to Long
+    public ResponseEntity<Branch> updateBranch(@PathVariable Long id, @RequestBody Branch branchDetails) {
         Branch updatedBranch = branchService.updateBranch(id, branchDetails);
         return updatedBranch != null ? new ResponseEntity<>(updatedBranch, HttpStatus.OK) :
                 new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
 }
