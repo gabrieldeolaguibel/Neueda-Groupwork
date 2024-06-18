@@ -1,0 +1,19 @@
+.branch-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    max-width: 300px;
+    background-color: cadetblue;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .branch-card h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+  }
+  
+  .branch-card p {
+    margin: 8px 0;
+  }
+  

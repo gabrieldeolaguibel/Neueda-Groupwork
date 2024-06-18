@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import BranchCard from './components/BranchCards';
 import './App.css';
 
 function App() {
+
+  // Could use this variable when editiing, deleting, or adding new branches
+  // Cards on screen should update automatically if variable is also updated correctly
   const [branches, setBranches] = useState([]);
 
   useEffect(() => {
@@ -15,21 +19,15 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Branch Management</h1>
-        <ul>
+        <div className="branch-list">
           {branches.map(branch => (
-            <li key={branch.id}>
-              <h2>{branch.city}</h2>
-              <p>Zip: {branch.zip}</p>
-              <p>State: {branch.state}</p>
-              <p>Operating Hours: {branch.operatingHours}</p>
-              <p>Branch Manager: {branch.branchManager}</p>
-              <p>Number of Employees: {branch.numberOfEmployees}</p>
-            </li>
+            <BranchCard key={branch.id} branch={branch} />
           ))}
-        </ul>
+        </div>
       </header>
     </div>
   );
 }
+
 
 export default App;
