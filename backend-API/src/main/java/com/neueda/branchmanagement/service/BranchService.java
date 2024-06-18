@@ -1,9 +1,9 @@
 package com.neueda.branchmanagement.service;
 
 import com.neueda.branchmanagement.model.Branch;
+import com.neueda.branchmanagement.repository.BranchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.neueda.branchmanagement.repository.BranchRepository;
 
 import java.util.List;
 import java.util.Optional;
