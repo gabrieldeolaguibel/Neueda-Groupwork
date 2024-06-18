@@ -1,17 +1,16 @@
 package com.neueda.branchmanagement.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-//@Table(name = "branches")
 public class Branch {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String city;
     private String zip;
     private String state;
@@ -19,11 +18,10 @@ public class Branch {
     private String branchManager;
     private int numberOfEmployees;
 
-    // Default constructor for JPA
-    public Branch() {
-    }
+    // Default constructor
+    public Branch() {}
 
-    // Constructor
+    // Parameterized constructor
     public Branch(String city, String zip, String state, String operatingHours, String branchManager, int numberOfEmployees) {
         this.city = city;
         this.zip = zip;
@@ -34,11 +32,12 @@ public class Branch {
     }
 
     // Getters and setters
-    public long getId() {
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
