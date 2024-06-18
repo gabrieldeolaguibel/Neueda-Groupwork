@@ -22,7 +22,27 @@
    ```
 
 5. **Verify the Application**:
-   Open a web browser and navigate to `http://localhost:8080/api/branches` to ensure the backend is running.
+   - Open a web browser and navigate to `http://localhost:8080/api/branches` to ensure the backend is running.
+   - Access Swagger UI with `http://localhost:8080/swagger-ui/index.html#/`
+
+### Instructions to Access the Database
+
+1. **Access the H2 Database Console**:
+   Open a web browser and navigate to `http://localhost:8080/h2-console`.
+
+2. **JDBC URL**:
+   Use the following JDBC URL to connect to the H2 database:
+   ```
+   jdbc:h2:file:./data/branchdb
+   ```
+
+3. **Database Credentials**:
+   - **User Name**: `sa`
+   - **Password**: `password`
+
+4. **Connect to the Database**:
+   After entering the JDBC URL and credentials, click on "Connect" to access the database.
+
 
 ### Instructions to Run the Frontend (React) Locally
 
