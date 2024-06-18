@@ -23,13 +23,10 @@ public class BranchController {
     @GetMapping
     @Operation(summary = "Get all branches", description = "Retrieve a list of all branches")
     public ResponseEntity<List<Branch>> getAllBranches() {
-        branchService.createBranch(new Branch("New York", "10001", "NY", "9AM-5PM", "John Doe", 10));
-        branchService.createBranch(new Branch("Los Angeles", "90001", "CA", "10AM-6PM", "Jane Smith", 15));
-        branchService.createBranch(new Branch("Chicago", "60601", "IL", "8AM-4PM", "Michael Brown", 8));
-
         List<Branch> branches = branchService.findAllBranches();
         return new ResponseEntity<>(branches, HttpStatus.OK);
     }
+
 
     // Get a single branch by ID
     @GetMapping("/{id}")
