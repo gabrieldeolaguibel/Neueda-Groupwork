@@ -16,3 +16,5 @@ mvnw.cmd
 # Build output directories
 target/
 out/
+
+.vscode

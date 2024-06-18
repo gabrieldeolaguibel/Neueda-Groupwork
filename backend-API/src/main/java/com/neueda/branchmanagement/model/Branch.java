@@ -1,13 +1,17 @@
 package com.neueda.branchmanagement.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-//@Entity
+@Entity
 //@Table(name = "branches")
 public class Branch {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String city;
     private String zip;
     private String state;
@@ -30,7 +34,7 @@ public class Branch {
     }
 
     // Getters and setters
-    public int getId() {
+    public long getId() {
         return id;
     }
 
