@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import BranchCard from './components/BranchCards';
 import './App.css';
+import NavBar from './components/NavBar';
+
 
 function App() {
 
@@ -17,8 +19,9 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar />
+      {/* <img class="background" src={`${process.env.PUBLIC_URL}/images/${'background.jpg'}`}/> */}
       <header className="App-header">
-        <h1>Branch Management</h1>
         <div className="branch-list">
           {branches.map(branch => (
             <BranchCard key={branch.id} branch={branch} />

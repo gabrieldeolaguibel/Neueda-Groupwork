@@ -1,0 +1,32 @@
+.navbar {
+    /* background-color: cadetblue; */
+    /* background-color: #897d77; */
+    /* add style to fix position at top*/
+
+    /* background-color: black; */
+    /* background-color: #768a96; */
+    /* background-color: #44576d; */
+    background-color: #29353c;
+
+    /* color: #e1cec8; */
+    /* color: #bed9f3; */
+    color: #d5d7d4;
+
+    padding-top: 5px;
+    height: 80px;
+    text-align: left;
+}
+
+h1 {
+    padding-left: 25px;
+    font-size: xx-large;
+    font-weight: 700;
+    margin-top: -55px;
+    margin-left: 60px;
+}
+
+.logo {
+    width: 60px;
+    margin-left: 10px;
+    padding-top: 5px;
+}
