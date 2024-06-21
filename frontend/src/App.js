@@ -17,6 +17,10 @@ function App() {
       .catch(error => console.error('Error fetching branches:', error));
   }, []);
 
+  const handleDelete = (branchId) => {
+    setBranches(branches.filter(branch => branch.id !== branchId));
+  };
+
   return (
     <div className="App">
       <NavBar />
@@ -24,7 +28,8 @@ function App() {
       <header className="App-header">
         <div className="branch-list">
           {branches.map(branch => (
-            <BranchCard key={branch.id} branch={branch} />
+            <BranchCard key={branch.id} branch={branch} onDelete={handleDelete} />
+
           ))}
         </div>
       </header>

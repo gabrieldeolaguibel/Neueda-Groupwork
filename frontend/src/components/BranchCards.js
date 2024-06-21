@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './BranchCards.css';
 import EditBranchPopup from './EditPopUp';
 
-const BranchCard = ({ branch }) => {
+const BranchCard = ({ branch, onDelete}) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
@@ -20,6 +20,13 @@ const BranchCard = ({ branch }) => {
     setIsPopupVisible(false);
   };
 
+  const handleBranchDelete = async (event) => {
+    event.stopPropagation();
+
+
+  };
+
+
   return (
     <div>
       <div className={`branch-card ${isFlipped ? 'flipped' : ''}`} onClick={handleCardClick}>
@@ -30,6 +37,8 @@ const BranchCard = ({ branch }) => {
           <p><strong>Branch Manager:</strong> {branch.branchManager}</p>
           <p><strong>Number of Employees:</strong> {branch.numberOfEmployees}</p>
           <button onClick={handleButtonClick}>Edit Branch Info</button>
+
+          <button onClick={handleBranchDelete}>Delete</button>
         </div>
         <div className="card-back">
           <h2>More info or map/image</h2>
