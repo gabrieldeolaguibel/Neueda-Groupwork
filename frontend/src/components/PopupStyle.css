@@ -11,9 +11,8 @@
     align-items: center;
     z-index: 1000;
   }
-  
-  .popup-content {
-    /* background: white; */
+
+  .popup-overlay .popup-content {
     background-color: #29353c;
     padding: 20px;
     border-radius: 10px;
@@ -34,19 +33,21 @@
   form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
   
   form label {
     margin-bottom: 10px;
+    width: 100%;
+    text-align: left;
   }
   
   form input {
-    width: 3%;
+    width: 96%;
     padding: 8px;
     margin-top: 5px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 4px;
   }
   
@@ -62,6 +63,6 @@
   }
   
   form button:hover {
-    background-color: #45a049;
+    background-color: #045708;
   }
   

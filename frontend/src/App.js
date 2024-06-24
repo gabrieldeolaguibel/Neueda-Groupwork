@@ -1,13 +1,10 @@
+// App.js
 import React, { useEffect, useState } from 'react';
 import BranchCard from './components/BranchCards';
 import './App.css';
 import NavBar from './components/NavBar';
 
-
 function App() {
-
-  // Could use this variable when editiing, deleting, or adding new branches
-  // Cards on screen should update automatically if variable is also updated correctly
   const [branches, setBranches] = useState([]);
 
   useEffect(() => {
@@ -21,21 +18,31 @@ function App() {
     setBranches(branches.filter(branch => branch.id !== branchId));
   };
 
+  const handleAddBranch = (newBranch) => {
+    setBranches([...branches, newBranch]);
+  };
+
+  const handleUpdateBranch = (updatedBranch) => {
+    setBranches(branches.map(branch => (branch.id === updatedBranch.id ? updatedBranch : branch)));
+  };
+
   return (
     <div className="App">
-      <NavBar />
-      {/* <img class="background" src={`${process.env.PUBLIC_URL}/images/${'background.jpg'}`}/> */}
+      <NavBar onAddBranch={handleAddBranch} />
       <header className="App-header">
         <div className="branch-list">
           {branches.map(branch => (
-            <BranchCard key={branch.id} branch={branch} onDelete={handleDelete} />
-
+            <BranchCard
+              key={branch.id}
+              branch={branch}
+              onDelete={handleDelete}
+              onUpdate={handleUpdateBranch}
+            />
           ))}
         </div>
       </header>
     </div>
   );
 }
-
 
 export default App;
