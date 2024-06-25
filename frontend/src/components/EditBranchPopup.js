@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './PopupStyle.css';
-// import './EditBranchPopup.css';
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
 const EditBranchPopup = ({ branch, onClose, onUpdate }) => {
   const [formData, setFormData] = useState({ ...branch });
@@ -36,7 +36,7 @@ const EditBranchPopup = ({ branch, onClose, onUpdate }) => {
   return (
     <div className="popup-background">
       <div className="popup-content">
-        <span className="close-button" onClick={onClose}>X</span>
+      <span className="close-button" onClick={onClose}><IoMdCloseCircleOutline style={{ fontSize: '25px'}}/></span>
         <h2 className='formTile'>Edit Branch</h2>
         <form onSubmit={handleSubmit}>
           <label className='label'>

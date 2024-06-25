@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import './BranchCards.css';
 import EditBranchPopup from './EditBranchPopup';
+import { IoMdCloseCircleOutline } from "react-icons/io";
+
 
 const BranchCard = ({ branch, onDelete, onUpdate }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -22,26 +24,14 @@ const BranchCard = ({ branch, onDelete, onUpdate }) => {
 
   const handleBranchDelete = async (event) => {
     event.stopPropagation();
-    try {
-      const response = await fetch(`http://localhost:8080/api/branches/${branch.id}`, {
-        method: 'DELETE',
-      });
-      
-      if (!response.ok) {
-        throw new Error('Failed to delete branch');
-      }
 
-      onDelete(branch.id);
-    } catch (error) {
-      console.error('Error deleting branch:', error);
-    }
   };
 
   return (
     <div>
       <div className={`branch-card ${isFlipped ? 'flipped' : ''}`} onClick={handleCardClick}>
         <div className="card-front">
-          <span className="delete-button" onClick={handleBranchDelete}>X</span>
+        <span className="delete-button" onClick={handleBranchDelete}><IoMdCloseCircleOutline style={{ fontSize: '25px'}}/></span>
           <h1>{branch.city}, {branch.state}</h1>
           <p><strong>ZIP Code:</strong> {branch.zip}</p>
           <p><strong>Operating Hours:</strong> {branch.operatingHours}</p>
