@@ -42,7 +42,7 @@ const BranchCard = ({ branch, onDelete, onUpdate }) => {
       <div className={`branch-card ${isFlipped ? 'flipped' : ''}`} onClick={handleCardClick}>
         <div className="card-front">
           <span className="delete-button" onClick={handleBranchDelete}>X</span>
-          <h2>{branch.city}, {branch.state}</h2>
+          <h1>{branch.city}, {branch.state}</h1>
           <p><strong>ZIP Code:</strong> {branch.zip}</p>
           <p><strong>Operating Hours:</strong> {branch.operatingHours}</p>
           <p><strong>Branch Manager:</strong> {branch.branchManager}</p>

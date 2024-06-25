@@ -1,5 +1,5 @@
 /* creates the dim background */
-.popup-overlay {
+.popup-background {
     position: fixed;
     top: 0;
     left: 0;
@@ -12,14 +12,16 @@
     z-index: 1000;
   }
 
-  .popup-overlay .popup-content {
+  .popup-background .popup-content {
     background-color: #29353c;
     padding: 20px;
     border-radius: 10px;
     position: relative;
     width: 80%;
     max-width: 500px;
+    text-align: left;
   }
+
   
   .close-button {
     position: absolute;
@@ -31,27 +33,34 @@
   }
 
   form {
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    
+  }
+
+  .popup-background .popup-content .formTile {
+    color: white;
   }
   
-  form label {
+  form .label {
     margin-bottom: 10px;
     width: 100%;
     text-align: left;
   }
   
-  form input {
-    width: 96%;
+  form .input {
+    width: 97%;
     padding: 8px;
     margin-top: 5px;
     margin-bottom: 15px;
     /* border: 1px solid #ccc; */
     border-radius: 4px;
+
   }
   
-  form button {
+  form .saveButton {
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
@@ -62,7 +71,7 @@
     width: 25%;
   }
   
-  form button:hover {
+  form .saveButton:hover {
     background-color: #045708;
   }
   

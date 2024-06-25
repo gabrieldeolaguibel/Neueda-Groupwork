@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './PopupStyle.css'; // Reusing the same CSS as EditBranchPopup
+// import './AddBranchPopup.css'; 
+import './PopupStyle.css';
 
 const AddBranchPopup = ({ onClose, onAdd }) => {
   const [formData, setFormData] = useState({
@@ -40,14 +41,14 @@ const AddBranchPopup = ({ onClose, onAdd }) => {
   };
 
   return (
-    <div className="popup-overlay">
+    <div className="popup-background">
       <div className="popup-content">
         <span className="close-button" onClick={onClose}>X</span>
-        <h2>Add New Branch</h2>
+        <h2 className='formTile'>Add Branch</h2>
         <form onSubmit={handleSubmit}>
-          <label>
+          <label className='label'>
             City:
-            <input
+            <input className='input'
               type="text"
               name="city"
               value={formData.city}
@@ -55,9 +56,9 @@ const AddBranchPopup = ({ onClose, onAdd }) => {
               required
             />
           </label>
-          <label>
+          <label className='label'>
             State:
-            <input
+            <input className='input'
               type="text"
               name="state"
               value={formData.state}
@@ -65,9 +66,9 @@ const AddBranchPopup = ({ onClose, onAdd }) => {
               required
             />
           </label>
-          <label>
+          <label className='label'>
             ZIP Code:
-            <input
+            <input className='input'
               type="text"
               name="zip"
               value={formData.zip}
@@ -75,9 +76,9 @@ const AddBranchPopup = ({ onClose, onAdd }) => {
               required
             />
           </label>
-          <label>
+          <label className='label'>
             Operating Hours:
-            <input
+            <input className='input'
               type="text"
               name="operatingHours"
               value={formData.operatingHours}
@@ -85,9 +86,9 @@ const AddBranchPopup = ({ onClose, onAdd }) => {
               required
             />
           </label>
-          <label>
+          <label className='label'>
             Branch Manager:
-            <input
+            <input className='input'
               type="text"
               name="branchManager"
               value={formData.branchManager}
@@ -95,9 +96,9 @@ const AddBranchPopup = ({ onClose, onAdd }) => {
               required
             />
           </label>
-          <label>
+          <label className='label'>
             Number of Employees:
-            <input
+            <input className='input'
               type="number"
               name="numberOfEmployees"
               value={formData.numberOfEmployees}
@@ -105,7 +106,7 @@ const AddBranchPopup = ({ onClose, onAdd }) => {
               required
             />
           </label>
-          <button type="submit">Add Branch</button>
+          <button className='saveButton' type="submit">Save</button>
         </form>
       </div>
     </div>

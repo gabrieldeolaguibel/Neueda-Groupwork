@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './PopupStyle.css';
+// import './EditBranchPopup.css';
 
 const EditBranchPopup = ({ branch, onClose, onUpdate }) => {
   const [formData, setFormData] = useState({ ...branch });
@@ -33,14 +34,14 @@ const EditBranchPopup = ({ branch, onClose, onUpdate }) => {
   };
 
   return (
-    <div className="popup-overlay">
+    <div className="popup-background">
       <div className="popup-content">
         <span className="close-button" onClick={onClose}>X</span>
-        <h2>Edit Branch</h2>
+        <h2 className='formTile'>Edit Branch</h2>
         <form onSubmit={handleSubmit}>
-          <label>
+          <label className='label'>
             City:
-            <input
+            <input className='input'
               type="text"
               name="city"
               value={formData.city}
@@ -48,9 +49,9 @@ const EditBranchPopup = ({ branch, onClose, onUpdate }) => {
               required
             />
           </label>
-          <label>
+          <label className='label'>
             State:
-            <input
+            <input className='input'
               type="text"
               name="state"
               value={formData.state}
@@ -58,9 +59,9 @@ const EditBranchPopup = ({ branch, onClose, onUpdate }) => {
               required
             />
           </label>
-          <label>
+          <label className='label'>
             ZIP Code:
-            <input
+            <input className='input'
               type="text"
               name="zip"
               value={formData.zip}
@@ -68,9 +69,9 @@ const EditBranchPopup = ({ branch, onClose, onUpdate }) => {
               required
             />
           </label>
-          <label>
+          <label className='label'>
             Operating Hours:
-            <input
+            <input className='input'
               type="text"
               name="operatingHours"
               value={formData.operatingHours}
@@ -78,9 +79,9 @@ const EditBranchPopup = ({ branch, onClose, onUpdate }) => {
               required
             />
           </label>
-          <label>
+          <label className='label'>
             Branch Manager:
-            <input
+            <input className='input'
               type="text"
               name="branchManager"
               value={formData.branchManager}
@@ -88,9 +89,9 @@ const EditBranchPopup = ({ branch, onClose, onUpdate }) => {
               required
             />
           </label>
-          <label>
+          <label className='label'>
             Number of Employees:
-            <input
+            <input className='input'
               type="number"
               name="numberOfEmployees"
               value={formData.numberOfEmployees}
@@ -98,7 +99,7 @@ const EditBranchPopup = ({ branch, onClose, onUpdate }) => {
               required
             />
           </label>
-          <button type="submit">Save</button>
+          <button className='saveButton' type="submit">Save</button>
         </form>
       </div>
     </div>

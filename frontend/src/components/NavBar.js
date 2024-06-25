@@ -16,8 +16,8 @@ const NavBar = ({ onAddBranch }) => {
   return (
     <nav className="navbar">
       <img className="logo" src={`${process.env.PUBLIC_URL}/images/${'leafico.png'}`} alt="Logo" />
-      <h1>Branch Manager</h1>
-      <button onClick={handleAddButtonClick}>Add Branch</button>
+      <h1 className='appTitle'>Branch Manager</h1>
+      <button className='addButton' onClick={handleAddButtonClick}>Add Branch</button>
       {isAddPopupVisible && <AddBranchPopup onClose={closeAddPopup} onAdd={onAddBranch} />}
     </nav>
   );
