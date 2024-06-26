@@ -1,12 +1,15 @@
 package com.neueda.branchmanagement.service;
 
-import com.neueda.branchmanagement.model.Branch;
-import com.neueda.branchmanagement.repository.BranchRepository;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import com.neueda.branchmanagement.model.Branch;
+import com.neueda.branchmanagement.repository.BranchRepository;
+
+
 
 @Service
 public class BranchService {
@@ -44,6 +47,18 @@ public class BranchService {
             return branchRepository.save(branch);
         } else {
             return null;
+        }
+    }
+
+    // Delete a branch by ID
+    public boolean deleteBranch(Long id) {
+        Optional<Branch> optionalBranch = branchRepository.findById(id);
+
+        if (optionalBranch.isPresent()) {
+            branchRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
         }
     }
 }

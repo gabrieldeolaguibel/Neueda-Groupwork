@@ -1,12 +1,22 @@
 package com.neueda.branchmanagement.controller;
 
-import com.neueda.branchmanagement.model.*;
-import com.neueda.branchmanagement.service.*;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import java.util.List;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.neueda.branchmanagement.model.Branch;
+import com.neueda.branchmanagement.service.BranchService;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
@@ -54,4 +64,12 @@ public class BranchController {
                 new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    // Delete a branch by ID
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Delete a branch", description = "Delete a branch by its ID")
+    public ResponseEntity<Void> deleteBranch(@PathVariable Long id) {
+        boolean isRemoved = branchService.deleteBranch(id);
+        return isRemoved ? new ResponseEntity<>(HttpStatus.NO_CONTENT) : 
+                           new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 }
