@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 
 function App() {
   const [branches, setBranches] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetch('http://localhost:8080/api/branches')
@@ -26,12 +27,17 @@ function App() {
     setBranches(branches.map(branch => (branch.id === updatedBranch.id ? updatedBranch : branch)));
   };
 
+  // Filter branches based on zip code
+  const filteredBranches = searchTerm
+    ? branches.filter(branch => branch.zip.includes(searchTerm))
+    : branches;
+  
   return (
     <div className="App">
-      <NavBar onAddBranch={handleAddBranch} />
+      <NavBar onSearch={setSearchTerm} onAddBranch={handleAddBranch} />
       <header className="App-header">
         <div className="branch-list">
-          {branches.map(branch => (
+          {filteredBranches.map(branch => (
             <BranchCard
               key={branch.id}
               branch={branch}

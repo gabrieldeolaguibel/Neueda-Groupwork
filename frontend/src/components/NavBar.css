@@ -1,5 +1,6 @@
 .navbar {
     background-color: #29353c;
+    color: #d5d7d4;
     padding-top: 5px;
     height: 80px;
     text-align: left;
@@ -9,12 +10,11 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.navbar .appTitle {
+.navbar h1 {
     padding-left: 25px;
     font-size: xx-large;
     font-weight: 700;
     margin-right: auto;
-    color: #d5d7d4;
 }
 
 .logo {
@@ -23,9 +23,34 @@
     padding-top: 5px;
 }
 
-.addButton {
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 12px; /* Increased padding for larger height */
+    margin-right: 10px; /* Adjust margin if needed */
+    font-size: 18px; /* Larger font size for better readability */
+    border: 2px solid #ccc; /* Adjusted border for aesthetics */
+    border-radius: 5px; /* Smoothed border radius */
+    width: 250px; /* Increased width for more typing space */
+}
+
+.search-container button {
+    padding: 12px 24px; /* Increased padding for a larger button */
+    background-color: #aac7d8;
+    color: #29353c;
+    font-weight: bolder;
+    font-size: 18px; /* Larger font size to match input */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.navbar button {
     padding: 10px 20px;
-    margin-left: 10px; 
+    margin-left: 10px;
     border: none;
     border-radius: 5px;
     background-color: #aac7d8;
@@ -35,10 +60,9 @@
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
     margin-right: 30px;
-  }
-  
-  .navbar button:hover {
+}
+
+.navbar button:hover, .search-container button:hover {
     background-color: #d5d7d4;
     transform: translateY(-2px);
-  }
-  
+}
