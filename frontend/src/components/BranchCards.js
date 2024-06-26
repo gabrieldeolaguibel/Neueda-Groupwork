@@ -24,7 +24,19 @@ const BranchCard = ({ branch, onDelete, onUpdate }) => {
 
   const handleBranchDelete = async (event) => {
     event.stopPropagation();
+    try {
+      const response = await fetch(`http://localhost:8080/api/branches/${branch.id}`, {
+        method: 'DELETE',
+      });
 
+      if (response.ok) {
+        onDelete(branch.id); // Call onDelete with the branch ID
+      } else {
+        console.error('Failed to delete the branch');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (

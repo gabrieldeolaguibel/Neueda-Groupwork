@@ -54,4 +54,12 @@ public class BranchController {
                 new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    // Delete a branch by ID
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Delete a branch", description = "Delete a branch by its ID")
+    public ResponseEntity<Void> deleteBranch(@PathVariable Long id) {
+        boolean isRemoved = branchService.deleteBranch(id);
+        return isRemoved ? new ResponseEntity<>(HttpStatus.NO_CONTENT) : 
+                           new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 }

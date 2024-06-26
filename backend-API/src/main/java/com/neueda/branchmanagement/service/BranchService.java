@@ -46,4 +46,16 @@ public class BranchService {
             return null;
         }
     }
+
+        // Delete a branch by ID
+    public boolean deleteBranch(Long id) {
+        Optional<Branch> optionalBranch = branchRepository.findById(id);
+
+        if (optionalBranch.isPresent()) {
+            branchRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
