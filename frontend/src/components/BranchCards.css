@@ -61,10 +61,12 @@
   
   .card-back {
     transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
     background-color: #aac7d8;
-    justify-content: center;
     box-sizing: border-box;
-    margin-top: -150px;
+    margin-top: -275px;
+    /* max-height: 250px;  */
   }
   
   .branch-card.flipped .card-front {
